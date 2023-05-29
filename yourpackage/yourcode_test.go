@@ -14,7 +14,8 @@ import (
 
 func TestYourFunction(t *testing.T) {
 	// Decode the JSON data into the Result struct
-	dataPath := filepath.Join("testdata", "data.json")
+	dataPath := filepath.Join("..", "testdata", "data.json")
+	// dataPath := filepath.Join(testdata.Dir(), "data.json")
 
 	// Open the file
 	file, err := os.Open(dataPath)
@@ -50,7 +51,7 @@ func TestYourFunction(t *testing.T) {
 			return
 		}
 		for _, message := range rmo.Messages {
-			fmt.Println(message.MD5OfBody)
+			fmt.Println(*message.MD5OfBody)
 		}
 	}
 }
