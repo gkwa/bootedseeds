@@ -1,4 +1,4 @@
-package yourpackage
+package main
 
 import (
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Open the JSON file
-	filePath := "data.json"
+	filePath := "testdata/data.json"
 	file, err := os.Open(filePath)
 	if err != nil {
 		fmt.Println("Error opening file:", err)

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	testdata "github.com/taylormonacelli/bootedseeds/testdata"
+	"github.com/taylormonacelli/bootedseeds/testdata"
 )
 
 func TestYourFunction(t *testing.T) {
