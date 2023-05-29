@@ -1,11 +1,11 @@
-package yourpackage_test
+package yourpackage
 
 import (
 	"fmt"
 	"path/filepath"
 	"testing"
 
-	"github.com/taylormonacelli/bootedseeds/testdata"
+	testdata "github.com/taylormonacelli/bootedseeds/testdata"
 )
 
 func TestYourFunction(t *testing.T) {
