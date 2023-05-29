@@ -11,3 +11,6 @@ type ExtendedSQSReceiveMessageOutput struct {
 type Result struct {
 	ExtendedSQSReceiveMessageOutputs []ExtendedSQSReceiveMessageOutput `json:"extended_sqs_receive_message_outputs"`
 }
+
+func main() {
+}
