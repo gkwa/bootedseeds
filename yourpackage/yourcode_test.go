@@ -51,7 +51,45 @@ func TestYourFunction(t *testing.T) {
 			return
 		}
 		for _, message := range rmo.Messages {
-			fmt.Println(*message.MD5OfBody)
+			fmt.Println(message.GoString())
+
+			jsonBytes, _ := json.MarshalIndent(message, "", "  ")
+			fmt.Println(string(jsonBytes))
+			jsonBytes, _ = json.MarshalIndent(message.Attributes, "", "  ")
+			fmt.Println("Attributes:", string(jsonBytes))
+			fmt.Println("Body:", *message.Body)
+
+			var notification yourpackage.NotificationMessage
+			err := json.Unmarshal([]byte(*message.Body), &notification)
+			if err != nil {
+				fmt.Println("Error deserializing JSON:", err)
+				return
+			}
+
+			jsonBytes, _ = json.MarshalIndent(notification, "", "  ")
+			fmt.Println("Notification:", string(jsonBytes))
+
+			var data map[string]json.RawMessage
+			err = json.Unmarshal([]byte(notification.Message), &data)
+			if err != nil {
+				fmt.Println("Error unmarshaling JSON:", err)
+				return
+			}
+			jsonBytes, _ = json.MarshalIndent(data, "", "  ")
+			fmt.Println("Message:", string(jsonBytes))
+
+			fmt.Println("MD5OfBody:", *message.MD5OfBody)
+
+			if message.MD5OfMessageAttributes != nil {
+				fmt.Println("MD5OfMessageAttributes:", *message.MD5OfMessageAttributes)
+			}
+
+			jsonBytes, _ = json.MarshalIndent(message.MessageAttributes, "", "  ")
+			fmt.Println("MessageAttributes:", string(jsonBytes))
+
+			fmt.Println("MessageId:", *message.MessageId)
+			fmt.Println("ReceiptHandle:", *message.ReceiptHandle)
+
 		}
 	}
 }
