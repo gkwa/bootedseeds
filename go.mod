@@ -3,7 +3,7 @@ module github.com/taylormonacelli/bootedseeds
 go 1.20
 
 require (
-	github.com/aws/aws-sdk-go v1.55.5
+	github.com/aws/aws-sdk-go v1.55.6
 	gorm.io/gorm v1.25.12
 )
 
