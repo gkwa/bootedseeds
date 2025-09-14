@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/aws/aws-sdk-go v1.55.8
-	gorm.io/gorm v1.30.5
+	gorm.io/gorm v1.31.0
 )
 
 require (
